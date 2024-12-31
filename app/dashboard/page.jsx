@@ -1,9 +1,15 @@
-import React from 'react'
-
-const Page = () => {
-  return (
-    <div>Hello, Dashboard!</div>
-  )
+async function getData() {
+  await new Promise((resolve) => {
+    return setTimeout(resolve,3000)
+  })
+  return {
+    message: "Hello, Dashboard!"
+  }
 }
 
-export default Page
+const DashboardPage = async (props) => {
+  const {message} = await getData()
+  return <h1>{message}</h1>
+}
+
+export default DashboardPage;
